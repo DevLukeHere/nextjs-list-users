@@ -1,5 +1,6 @@
 "use client";
 
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
 import avatar from "../../public/images/avatar.png";
@@ -11,7 +12,8 @@ import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 
 export default function ProfileHeader() {
-  const { isLoading, isValidating } = useUsers(1, 20);
+  const page = useAppSelector((state) => state.paginationReducer.page)
+  const { isLoading, isValidating } = useUsers(page, 20);
 
   return (
     <section

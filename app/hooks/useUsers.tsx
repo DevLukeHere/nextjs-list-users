@@ -8,7 +8,7 @@ import axios from "axios";
 type results = number;
 type page = number;
 
-export default function useUsers(page:page, results: results) {
+export default function useUsers(page: page, results: results) {
   // TODO: Fix TypeScript error
   // @ts-ignore
   const fetcher = (url) =>

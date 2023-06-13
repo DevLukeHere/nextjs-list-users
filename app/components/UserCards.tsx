@@ -11,8 +11,9 @@ import dayjs from "dayjs";
 import { Fragment } from "react";
 
 export default function UserCards() {
+  const page = useAppSelector((state) => state.paginationReducer.page);
   const dispatch = useAppDispatch();
-  const { users, isLoading, isValidating } = useUsers(1, 20);
+  const { users, isLoading, isValidating } = useUsers(page, 20);
 
   console.log("users:", users);
 
@@ -49,7 +50,7 @@ export default function UserCards() {
       ) : (
         // TODO: Fix TypeScript error
         // @ts-ignore
-        users.map((user, index) => (
+        users?.map((user, index) => (
           <Box
             key={index}
             onClick={() => handleOpen(user)}

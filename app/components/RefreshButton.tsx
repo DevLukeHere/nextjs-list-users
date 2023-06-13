@@ -1,12 +1,14 @@
 "use client";
 
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import Button from "@mui/material/Button";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import useUsers from "../hooks/useUsers";
 import Box from "@mui/material/Box";
 
 export default function RefreshButton() {
-  const { mutate, isLoading, isValidating } = useUsers(1, 20);
+  const page = useAppSelector((state) => state.paginationReducer.page)
+  const { mutate, isLoading, isValidating } = useUsers(page, 20);
 
   function handleRefresh() {
     mutate();
