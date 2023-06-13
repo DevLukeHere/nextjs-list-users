@@ -10,14 +10,69 @@ import useUsers from "../hooks/useUsers";
 import dayjs from "dayjs";
 import { Fragment } from "react";
 
+interface userProps {
+  cell: string;
+  dob: {
+    date: string;
+    age: number;
+  };
+  email: string;
+  gender: string;
+  id: {
+    name: string;
+    value: string;
+  };
+  location: {
+    city: string;
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    };
+    country: string;
+    postcode: number;
+    state: string;
+    street: {
+      name: string;
+      number: number;
+    };
+    timezone: {
+      description: string;
+      offset: string;
+    };
+  };
+  login: {
+    md5: string;
+    password: string;
+    salt: string;
+    sha1: string;
+    sha256: string;
+    username: string;
+    uuid: string;
+  };
+  name: {
+    first: string;
+    last: string;
+    title: string;
+  };
+  nat: string;
+  phone: string;
+  picture: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
+  registered: {
+    age: number;
+    date: string;
+  };
+}
+
 export default function UserCards() {
   const page = useAppSelector((state) => state.paginationReducer.page);
   const dispatch = useAppDispatch();
   const { users, isLoading, isValidating } = useUsers(page, 20);
 
-  // TODO: Fix TypeScript error
-  // @ts-ignore
-  function handleOpen(user) {
+  function handleOpen(user: unknown) {
     dispatch(openDialog());
     dispatch(setCurrentUser(user));
   }
@@ -46,9 +101,7 @@ export default function UserCards() {
           />
         </Fragment>
       ) : (
-        // TODO: Fix TypeScript error
-        // @ts-ignore
-        users?.map((user, index) => (
+        users?.map((user: userProps, index: number) => (
           <Box
             key={index}
             onClick={() => handleOpen(user)}
@@ -72,31 +125,31 @@ export default function UserCards() {
               variant="body2"
               sx={{ color: "#979797", fontWeight: "400" }}
             >
-              {dayjs(user.dob.date).format("DD MMM YYYY")}
+              {dayjs(user?.dob?.date).format("DD MMM YYYY")}
             </Typography>
             <Typography
               variant="body2"
               sx={{ color: "#303030", fontWeight: "600" }}
             >
-              {user.name.first} {user.name.last}
+              {user?.name?.first} {user?.name?.last}
             </Typography>
             <Typography
               variant="body2"
               sx={{ color: "#979797", fontWeight: "400" }}
             >
-              {user.gender}
+              {user?.gender}
             </Typography>
             <Typography
               variant="body2"
               sx={{ color: "#303030", fontWeight: "400" }}
             >
-              {user.location.country}
+              {user?.location?.country}
             </Typography>
             <Typography
               variant="body2"
               sx={{ color: "#979797", fontWeight: "400" }}
             >
-              {user.email}
+              {user?.email}
             </Typography>
           </Box>
         ))
