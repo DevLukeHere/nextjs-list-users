@@ -12,9 +12,9 @@ import { Fragment } from "react";
 
 export default function UserCards() {
   const dispatch = useAppDispatch();
-  const { users, isLoading } = useUsers(7);
+  const { users, isLoading, isValidating } = useUsers(7);
 
-  // console.log("users:", users);
+  console.log("users:", users);
 
   // TODO: Fix TypeScript error
   // @ts-ignore
@@ -25,7 +25,7 @@ export default function UserCards() {
 
   return (
     <section>
-      {isLoading ? (
+      {isLoading || isValidating ? (
         <Fragment>
           <Skeleton
             sx={{ borderRadius: "0.5rem", marginBottom: "1rem" }}

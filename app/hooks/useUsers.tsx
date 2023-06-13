@@ -12,7 +12,7 @@ export default function useUsers(results: results) {
   // @ts-ignore
   const fetcher = (url) =>
     axios.get(url).then((response) => response.data.results);
-  const { data, error, isLoading } = useSWR(
+  const { data, mutate, error, isLoading, isValidating } = useSWR(
     `https://randomuser.me/api/?results=${results}`,
     fetcher,
     {
@@ -24,7 +24,9 @@ export default function useUsers(results: results) {
 
   return {
     users: data,
+    mutate,
     isLoading,
+    isValidating,
     isError: error,
   };
 }
