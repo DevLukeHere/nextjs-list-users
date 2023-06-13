@@ -1,20 +1,17 @@
 "use client";
 
+import { openDialog } from "../redux/features/dialogSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 import useUsers from "../hooks/useUsers";
 import dayjs from "dayjs";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
-// TODO: Fix TypeScript error
-// @ts-ignore
-export default function UserCards(props) {
-  const { handleOpen } = props;
-  // const [users, setUsers] = useState([]);
+export default function UserCards() {
+  const dispatch = useAppDispatch();
   const { users, isLoading } = useUsers(7);
-
-  // console.log("users:", users);
 
   return (
     <section>
@@ -45,7 +42,7 @@ export default function UserCards(props) {
         users.map((user, index) => (
           <Box
             key={index}
-            onClick={handleOpen}
+            onClick={() => dispatch(openDialog())}
             sx={{
               padding: "2rem 1.75rem",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",

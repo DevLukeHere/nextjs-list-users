@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { closeDialog } from "../redux/features/dialogSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
@@ -22,16 +23,19 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-// TODO: Fix TypeScript error
-// @ts-ignore
-export default function UserInformationDialog(props) {
-  const { showUserInformation, handleClose } = props;
+export default function UserInformationDialog() {
+  const open = useAppSelector((state) => state.dialogReducer.open);
+  const dispatch = useAppDispatch();
+
+  function handleClose() {
+    dispatch(closeDialog());
+  }
 
   return (
     <CustomDialog
       onClose={handleClose}
       aria-labelledby="user-information-dialog"
-      open={showUserInformation}
+      open={open}
     >
       <Box
         sx={{
@@ -44,7 +48,7 @@ export default function UserInformationDialog(props) {
         <Typography sx={{ fontWeight: "700" }} variant="h4">
           Megan R.Johnson
         </Typography>
-        <IconButton aria-label="close" onClick={handleClose}>
+        <IconButton aria-label="close" onClick={() => dispatch(closeDialog())}>
           <CloseIcon />
         </IconButton>
       </Box>
