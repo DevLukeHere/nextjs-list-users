@@ -26,6 +26,23 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
+const BoxStyled = styled(Box)({
+  display: "grid",
+  gridTemplateColumns: "1fr auto",
+  columnGap: "2rem",
+  padding: "0 1.5rem",
+});
+
+const TextBlack = styled(Typography)({
+  marginBottom: "0.5rem",
+  color: Colors.black,
+});
+
+const TextGrey = styled(Typography)({
+  marginBottom: "0.5rem",
+  color: Colors.secondaryGrey,
+});
+
 export default function UserInformationDialog() {
   const open = useAppSelector((state) => state.dialogReducer.open);
   const currentUser = useAppSelector((state) => state.usersReducer.currentUser);
@@ -42,21 +59,14 @@ export default function UserInformationDialog() {
       aria-labelledby="user-information-dialog"
       open={open}
     >
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "1fr auto",
-          columnGap: "2rem",
-          padding: "0 1.5rem",
-        }}
-      >
+      <BoxStyled>
         <Typography sx={{ fontWeight: "700" }} variant="h4">
           {currentUser?.name?.first} {currentUser?.name?.last}
         </Typography>
         <IconButton aria-label="close" onClick={handleClose}>
           <CloseIcon />
         </IconButton>
-      </Box>
+      </BoxStyled>
       <DialogContent
         sx={{
           display: "grid",
@@ -65,62 +75,22 @@ export default function UserInformationDialog() {
         }}
       >
         <Box>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#979797" }}
-            variant="body2"
-          >
-            Date:
-          </Typography>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#979797" }}
-            variant="body2"
-          >
-            Status:
-          </Typography>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#979797" }}
-            variant="body2"
-          >
-            Gender:
-          </Typography>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#979797" }}
-            variant="body2"
-          >
-            Country:
-          </Typography>
-          <Typography sx={{ color: "#979797" }} variant="body2">
-            Email:
-          </Typography>
+          <TextGrey variant="body2">Date:</TextGrey>
+          <TextGrey variant="body2">Status:</TextGrey>
+          <TextGrey variant="body2">Gender:</TextGrey>
+          <TextGrey variant="body2">Country:</TextGrey>
+          <TextGrey variant="body2">Email:</TextGrey>
         </Box>
         <Box>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#303030" }}
-            variant="body2"
-          >
+          <TextBlack variant="body2">
             {dayjs(currentUser?.dob?.date).format("DD MMM YYYY")}
-          </Typography>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#303030" }}
-            variant="body2"
-          >
-            Inactive
-          </Typography>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#303030" }}
-            variant="body2"
-          >
-            {currentUser?.gender}
-          </Typography>
-          <Typography
-            sx={{ marginBottom: "0.5rem", color: "#303030" }}
-            variant="body2"
-          >
+          </TextBlack>
+          <TextBlack variant="body2">Inactive</TextBlack>
+          <TextBlack variant="body2">{currentUser?.gender}</TextBlack>
+          <TextBlack variant="body2">
             {currentUser?.location?.country}
-          </Typography>
-          <Typography sx={{ color: "#303030" }} variant="body2">
-            {currentUser?.email}
-          </Typography>
+          </TextBlack>
+          <TextBlack variant="body2">{currentUser?.email}</TextBlack>
         </Box>
       </DialogContent>
     </CustomDialog>

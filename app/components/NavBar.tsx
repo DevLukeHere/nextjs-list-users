@@ -1,5 +1,6 @@
 "use client";
 
+import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";
 import Container from "@mui/material/Container";
@@ -9,25 +10,31 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import IconButton from "@mui/material/IconButton";
 
+const ContainerStyled = styled(Container)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "1rem 0",
+});
+
+const BoxStyled = styled(Box)({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr",
+  columnGap: "1rem",
+});
+
 export default function NavBar() {
   return (
     <nav>
-      <Container
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "1rem 0",
-        }}
-      >
-        <Image src={logo} alt="kiratech logo" priority width="170" height="56" />
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            columnGap: "1rem",
-          }}
-        >
+      <ContainerStyled>
+        <Image
+          src={logo}
+          alt="kiratech logo"
+          priority
+          width="170"
+          height="56"
+        />
+        <BoxStyled>
           <IconButton aria-label="notifications">
             <NotificationsNoneIcon />
           </IconButton>
@@ -37,8 +44,8 @@ export default function NavBar() {
           <IconButton aria-label="log out">
             <LogoutIcon />
           </IconButton>
-        </Box>
-      </Container>
+        </BoxStyled>
+      </ContainerStyled>
     </nav>
   );
 }

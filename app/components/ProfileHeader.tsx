@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppSelector } from "../redux/hooks";
+import { styled } from "@mui/material/styles";
 import Colors from "../colors/colors";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
@@ -11,6 +12,65 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
+
+const NameText = styled(Typography)({
+  color: Colors.white,
+  fontWeight: "700",
+  textTransform: "capitalize",
+});
+
+const LastOnlineText = styled(Typography)({
+  color: Colors.white,
+  fontWeight: "400",
+});
+
+const BoxStyled = styled(Box)({
+  position: "absolute",
+  left: "0",
+  bottom: "0",
+  transform: "translate(100%, 50%)",
+});
+
+const ContainerStyled = styled(Container)({
+  backgroundColor: Colors.primary,
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-around",
+});
+
+const SendMessageButton = styled(Button)({
+  backgroundColor: Colors.white,
+  color: Colors.primary,
+  textTransform: "capitalize",
+  padding: "1rem 1.25rem",
+  borderRadius: "0.25rem",
+  width: "10.75rem",
+  height: "3.25rem",
+  marginRight: "0.5rem",
+  border: "1px solid transparent",
+  ":hover": {
+    backgroundColor: Colors.primary,
+    borderColor: Colors.white,
+    color: Colors.white,
+  },
+});
+
+const AddFriendButton = styled(Button)({
+  backgroundColor: Colors.primary,
+  color: Colors.white,
+  textTransform: "capitalize",
+  padding: "1rem 1.25rem",
+  border: `1px solid ${Colors.white}`,
+  borderRadius: "0.25rem",
+  width: "10.75rem",
+  height: "3.25rem",
+  ":hover": {
+    borderColor: Colors.white,
+    backgroundColor: Colors.white,
+    color: Colors.primary,
+  },
+});
 
 export default function ProfileHeader() {
   const page = useAppSelector((state) => state.paginationReducer.page);
@@ -24,91 +84,33 @@ export default function ProfileHeader() {
         position: "relative",
       }}
     >
-      <Box
-        style={{
-          position: "absolute",
-          left: "0",
-          bottom: "0",
-          transform: "translate(100%, 50%)",
-        }}
-      >
+      <BoxStyled>
         <Image src={avatar} alt="avatar" priority width="148" height="148" />
-      </Box>
-      <Container
-        sx={{
-          backgroundColor: Colors.primary,
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
-      >
+      </BoxStyled>
+      <ContainerStyled>
         <Box>
-          <Typography
-            variant="h4"
-            sx={{
-              color: Colors.white,
-              fontWeight: "700",
-              textTransform: "capitalize",
-            }}
-          >
-            john doe
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ color: Colors.white, fontWeight: "400" }}
-          >
+          <NameText variant="h4">john doe</NameText>
+          <LastOnlineText variant="body2">
             Last online: 2 days ago
-          </Typography>
+          </LastOnlineText>
         </Box>
         <Box>
-          <Button
+          <SendMessageButton
             disabled={isValidating || isLoading}
-            sx={{
-              backgroundColor: Colors.white,
-              color: Colors.primary,
-              textTransform: "capitalize",
-              padding: "1rem 1.25rem",
-              borderRadius: "0.25rem",
-              width: "10.75rem",
-              height: "3.25rem",
-              marginRight: "0.5rem",
-              border: "1px solid transparent",
-              ":hover": {
-                backgroundColor: Colors.primary,
-                borderColor: Colors.white,
-                color: Colors.white,
-              },
-            }}
             variant="contained"
             startIcon={<SendIcon />}
           >
             Send Message
-          </Button>
-          <Button
+          </SendMessageButton>
+          <AddFriendButton
             disabled={isValidating || isLoading}
-            sx={{
-              backgroundColor: Colors.primary,
-              color: Colors.white,
-              textTransform: "capitalize",
-              padding: "1rem 1.25rem",
-              border: `1px solid ${Colors.white}`,
-              borderRadius: "0.25rem",
-              width: "10.75rem",
-              height: "3.25rem",
-              ":hover": {
-                borderColor: Colors.white,
-                backgroundColor: Colors.white,
-                color: Colors.primary,
-              },
-            }}
             variant="outlined"
             startIcon={<AddIcon />}
           >
             Add Friend
-          </Button>
+          </AddFriendButton>
         </Box>
-      </Container>
+      </ContainerStyled>
     </section>
   );
 }
