@@ -2,11 +2,8 @@
 
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -14,66 +11,109 @@ import Box from "@mui/material/Box";
 
 const CustomDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
-    padding: theme.spacing(2),
+    //
   },
   "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
   },
+  "& .MuiPaper-root": {
+    borderRadius: "0.5rem",
+    padding: "1.5rem",
+  },
 }));
 
-export default function UserInformationDialog() {
-  const [open, setOpen] = useState(false);
-
-  function handleClickOpen() {
-    setOpen(true);
-  }
-
-  function handleClose() {
-    setOpen(false);
-  }
+// TODO: Fix TypeScript error
+// @ts-ignore
+export default function UserInformationDialog(props) {
+  const { showUserInformation, handleClose } = props;
 
   return (
     <CustomDialog
       onClose={handleClose}
       aria-labelledby="user-information-dialog"
-      open={open}
+      open={showUserInformation}
     >
-      <DialogTitle>
-        <IconButton
-          aria-label="close"
-          onClick={handleClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-          }}
-        >
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr auto",
+          columnGap: "2rem",
+          padding: "0 1.5rem",
+        }}
+      >
+        <Typography sx={{ fontWeight: "700" }} variant="h4">
+          Megan R.Johnson
+        </Typography>
+        <IconButton aria-label="close" onClick={handleClose}>
           <CloseIcon />
         </IconButton>
-        <Typography>Megan R.Johnson</Typography>
-        <DialogContent>
-          <Box>
-            <Typography variant="body2">Date:</Typography>
-            <Typography variant="body2">14 Sep 2022</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">Status:</Typography>
-            <Typography variant="body2">Inactive</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">Gender:</Typography>
-            <Typography variant="body2">Female</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">Country:</Typography>
-            <Typography variant="body2">Australia</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">Email:</Typography>
-            <Typography variant="body2">meganejohnson@gmail.com</Typography>
-          </Box>
-        </DialogContent>
-      </DialogTitle>
+      </Box>
+      <DialogContent
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "auto 1fr",
+          columnGap: "1rem",
+        }}
+      >
+        <Box>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#979797" }}
+            variant="body2"
+          >
+            Date:
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#979797" }}
+            variant="body2"
+          >
+            Status:
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#979797" }}
+            variant="body2"
+          >
+            Gender:
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#979797" }}
+            variant="body2"
+          >
+            Country:
+          </Typography>
+          <Typography sx={{ color: "#979797" }} variant="body2">
+            Email:
+          </Typography>
+        </Box>
+        <Box>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#303030" }}
+            variant="body2"
+          >
+            14 Sep 2022
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#303030" }}
+            variant="body2"
+          >
+            Inactive
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#303030" }}
+            variant="body2"
+          >
+            Female
+          </Typography>
+          <Typography
+            sx={{ marginBottom: "0.5rem", color: "#303030" }}
+            variant="body2"
+          >
+            Australia
+          </Typography>
+          <Typography sx={{ color: "#303030" }} variant="body2">
+            meganejohnson@gmail.com
+          </Typography>
+        </Box>
+      </DialogContent>
     </CustomDialog>
   );
 }
