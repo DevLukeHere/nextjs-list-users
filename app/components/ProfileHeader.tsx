@@ -11,7 +11,7 @@ import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 
 export default function ProfileHeader() {
-  const { isLoading, isValidating } = useUsers(7);
+  const { isLoading, isValidating } = useUsers(1, 20);
 
   return (
     <section

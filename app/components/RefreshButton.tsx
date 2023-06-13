@@ -6,7 +6,7 @@ import useUsers from "../hooks/useUsers";
 import Box from "@mui/material/Box";
 
 export default function RefreshButton() {
-  const { mutate, isLoading, isValidating } = useUsers(7);
+  const { mutate, isLoading, isValidating } = useUsers(1, 20);
 
   function handleRefresh() {
     mutate();

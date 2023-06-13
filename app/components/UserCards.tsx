@@ -12,7 +12,7 @@ import { Fragment } from "react";
 
 export default function UserCards() {
   const dispatch = useAppDispatch();
-  const { users, isLoading, isValidating } = useUsers(7);
+  const { users, isLoading, isValidating } = useUsers(1, 20);
 
   console.log("users:", users);
 
