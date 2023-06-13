@@ -24,12 +24,12 @@ const LastOnlineText = styled(Typography)({
   fontWeight: "400",
 });
 
-const BoxStyled = styled(Box)({
+const BoxStyled = styled(Box)((props) => ({
   position: "absolute",
   left: "0",
   bottom: "0",
-  transform: "translate(100%, 50%)",
-});
+  transform: "translate(0%, 50%)",
+}));
 
 const ContainerStyled = styled(Container)({
   backgroundColor: Colors.primary,
@@ -37,6 +37,7 @@ const ContainerStyled = styled(Container)({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-around",
+  position: "relative",
 });
 
 const SendMessageButton = styled(Button)({
@@ -81,13 +82,13 @@ export default function ProfileHeader() {
       style={{
         height: "9.75rem",
         backgroundColor: Colors.primary,
-        position: "relative",
+        // position: "relative",
       }}
     >
-      <BoxStyled>
-        <Image src={avatar} alt="avatar" priority width="148" height="148" />
-      </BoxStyled>
       <ContainerStyled>
+        <BoxStyled>
+          <Image src={avatar} alt="avatar" priority width="148" height="148" />
+        </BoxStyled>
         <Box>
           <NameText variant="h4">john doe</NameText>
           <LastOnlineText variant="body2">

@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <main>
       <ProfileHeader />
-      <UserInformationDialog />
       <Container>
+        <UserInformationDialog />
         <TableTitles />
         <UserCards />
         <Pagination />
