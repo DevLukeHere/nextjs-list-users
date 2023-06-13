@@ -20,7 +20,7 @@ export default function NavBar() {
           padding: "1rem 0",
         }}
       >
-        <Image src={logo} alt="kiratech logo" width="170" height="56" />
+        <Image src={logo} alt="kiratech logo" priority width="170" height="56" />
         <Box
           sx={{
             display: "grid",

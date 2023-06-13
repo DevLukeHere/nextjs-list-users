@@ -26,7 +26,7 @@ export default function ProfileHeader() {
           transform: "translate(50%, 50%)",
         }}
       >
-        <Image src={avatar} alt="avatar" width="148" height="148" />
+        <Image src={avatar} alt="avatar" priority width="148" height="148" />
       </Box>
       <Container
         sx={{
