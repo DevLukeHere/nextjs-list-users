@@ -66,6 +66,9 @@ export default function ProfileHeader() {
               width: "10.75rem",
               height: "3.25rem",
               marginRight: "0.5rem",
+              ":hover": {
+                backgroundColor: "#ffffff"
+              }
             }}
             variant="contained"
             startIcon={<SendIcon />}
@@ -82,6 +85,9 @@ export default function ProfileHeader() {
               borderRadius: "0.25rem",
               width: "10.75rem",
               height: "3.25rem",
+              ":hover": {
+                borderColor: "#ffffff"
+              }
             }}
             variant="outlined"
             startIcon={<AddIcon />}
