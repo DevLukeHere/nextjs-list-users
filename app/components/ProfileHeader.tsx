@@ -26,7 +26,7 @@ export default function ProfileHeader() {
           position: "absolute",
           left: "0",
           bottom: "0",
-          transform: "translate(50%, 50%)",
+          transform: "translate(100%, 50%)",
         }}
       >
         <Image src={avatar} alt="avatar" priority width="148" height="148" />
