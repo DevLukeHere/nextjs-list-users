@@ -4,14 +4,17 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 import useUsers from "../hooks/useUsers";
-import dayjs from "dayjs"
+import dayjs from "dayjs";
 import { Fragment, useEffect, useState } from "react";
 
-export default function UserCards() {
+// TODO: Fix TypeScript error
+// @ts-ignore
+export default function UserCards(props) {
+  const { handleOpen } = props;
   // const [users, setUsers] = useState([]);
   const { users, isLoading } = useUsers(7);
 
-  console.log("users:", users);
+  // console.log("users:", users);
 
   return (
     <section>
@@ -42,6 +45,7 @@ export default function UserCards() {
         users.map((user, index) => (
           <Box
             key={index}
+            onClick={handleOpen}
             sx={{
               padding: "2rem 1.75rem",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
@@ -55,7 +59,7 @@ export default function UserCards() {
               border: "2px solid #ffffff",
               ":hover": {
                 borderColor: "#35bad8",
-              }
+              },
             }}
           >
             <Typography
