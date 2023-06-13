@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import useUsers from "../hooks/useUsers";
 import avatar from "../../public/images/avatar.png";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -10,6 +11,8 @@ import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 
 export default function ProfileHeader() {
+  const { isLoading, isValidating } = useUsers(7);
+
   return (
     <section
       style={{
@@ -57,6 +60,7 @@ export default function ProfileHeader() {
         </Box>
         <Box>
           <Button
+            disabled={isValidating || isLoading}
             sx={{
               backgroundColor: "#ffffff",
               color: "#35bad8",
@@ -79,6 +83,7 @@ export default function ProfileHeader() {
             Send Message
           </Button>
           <Button
+            disabled={isValidating || isLoading}
             sx={{
               backgroundColor: "#35bad8",
               color: "#ffffff",

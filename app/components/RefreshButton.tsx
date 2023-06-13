@@ -6,7 +6,7 @@ import useUsers from "../hooks/useUsers";
 import Box from "@mui/material/Box";
 
 export default function RefreshButton() {
-  const { mutate } = useUsers(7);
+  const { mutate, isLoading, isValidating } = useUsers(7);
 
   function handleRefresh() {
     mutate();
@@ -16,6 +16,7 @@ export default function RefreshButton() {
     <Box sx={{ marginTop: "1rem", textAlign: "center" }}>
       <Button
         onClick={handleRefresh}
+        disabled={isLoading || isValidating}
         variant="contained"
         startIcon={<RefreshIcon />}
         sx={{
