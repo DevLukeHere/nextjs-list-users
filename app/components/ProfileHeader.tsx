@@ -82,7 +82,6 @@ export default function ProfileHeader() {
       style={{
         height: "9.75rem",
         backgroundColor: Colors.primary,
-        // position: "relative",
       }}
     >
       <ContainerStyled>
