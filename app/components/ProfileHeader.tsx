@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
 import avatar from "../../public/images/avatar.png";

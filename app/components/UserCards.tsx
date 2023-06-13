@@ -15,8 +15,6 @@ export default function UserCards() {
   const dispatch = useAppDispatch();
   const { users, isLoading, isValidating } = useUsers(page, 20);
 
-  console.log("users:", users);
-
   // TODO: Fix TypeScript error
   // @ts-ignore
   function handleOpen(user) {

@@ -1,10 +1,6 @@
 import useSWR from "swr";
 import axios from "axios";
 
-// interface ApiProps {
-//   results: number;
-// }
-
 type results = number;
 type page = number;
 

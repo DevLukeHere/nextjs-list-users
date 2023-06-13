@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "./page.module.css";
 import ProfileHeader from "./components/ProfileHeader";
 import Container from "@mui/material/Container";
 import TableTitles from "./components/TableTitles";
