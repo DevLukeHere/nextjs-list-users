@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
+import dayjs from "dayjs";
 
 const CustomDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -96,7 +97,7 @@ export default function UserInformationDialog() {
             sx={{ marginBottom: "0.5rem", color: "#303030" }}
             variant="body2"
           >
-            {currentUser?.dob?.date}
+            {dayjs(currentUser?.dob?.date).format("DD MMM YYYY")}
           </Typography>
           <Typography
             sx={{ marginBottom: "0.5rem", color: "#303030" }}
