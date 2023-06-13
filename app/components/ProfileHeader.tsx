@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppSelector } from "../redux/hooks";
+import Colors from "../colors/colors";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
 import avatar from "../../public/images/avatar.png";
@@ -12,14 +13,14 @@ import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 
 export default function ProfileHeader() {
-  const page = useAppSelector((state) => state.paginationReducer.page)
+  const page = useAppSelector((state) => state.paginationReducer.page);
   const { isLoading, isValidating } = useUsers(page, 20);
 
   return (
     <section
       style={{
         height: "9.75rem",
-        backgroundColor: "#35bad8",
+        backgroundColor: Colors.primary,
         position: "relative",
       }}
     >
@@ -35,7 +36,7 @@ export default function ProfileHeader() {
       </Box>
       <Container
         sx={{
-          backgroundColor: "#35bad8",
+          backgroundColor: Colors.primary,
           height: "100%",
           display: "flex",
           alignItems: "center",
@@ -46,7 +47,7 @@ export default function ProfileHeader() {
           <Typography
             variant="h4"
             sx={{
-              color: "#ffffff",
+              color: Colors.white,
               fontWeight: "700",
               textTransform: "capitalize",
             }}
@@ -55,7 +56,7 @@ export default function ProfileHeader() {
           </Typography>
           <Typography
             variant="body2"
-            sx={{ color: "#ffffff", fontWeight: "400" }}
+            sx={{ color: Colors.white, fontWeight: "400" }}
           >
             Last online: 2 days ago
           </Typography>
@@ -64,8 +65,8 @@ export default function ProfileHeader() {
           <Button
             disabled={isValidating || isLoading}
             sx={{
-              backgroundColor: "#ffffff",
-              color: "#35bad8",
+              backgroundColor: Colors.white,
+              color: Colors.primary,
               textTransform: "capitalize",
               padding: "1rem 1.25rem",
               borderRadius: "0.25rem",
@@ -74,9 +75,9 @@ export default function ProfileHeader() {
               marginRight: "0.5rem",
               border: "1px solid transparent",
               ":hover": {
-                backgroundColor: "#35bad8",
-                borderColor: "#ffffff",
-                color: "#ffffff",
+                backgroundColor: Colors.primary,
+                borderColor: Colors.white,
+                color: Colors.white,
               },
             }}
             variant="contained"
@@ -87,18 +88,18 @@ export default function ProfileHeader() {
           <Button
             disabled={isValidating || isLoading}
             sx={{
-              backgroundColor: "#35bad8",
-              color: "#ffffff",
+              backgroundColor: Colors.primary,
+              color: Colors.white,
               textTransform: "capitalize",
               padding: "1rem 1.25rem",
-              border: "1px solid #ffffff",
+              border: `1px solid ${Colors.white}`,
               borderRadius: "0.25rem",
               width: "10.75rem",
               height: "3.25rem",
               ":hover": {
-                borderColor: "#ffffff",
-                backgroundColor: "#ffffff",
-                color: "#35bad8",
+                borderColor: Colors.white,
+                backgroundColor: Colors.white,
+                color: Colors.primary,
               },
             }}
             variant="outlined"

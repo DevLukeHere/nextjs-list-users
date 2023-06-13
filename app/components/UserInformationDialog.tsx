@@ -4,6 +4,7 @@ import { closeDialog } from "../redux/features/dialogSlice";
 import { reset } from "../redux/features/usersSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { styled } from "@mui/material/styles";
+import Colors from "../colors/colors";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import CloseIcon from "@mui/icons-material/Close";

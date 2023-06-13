@@ -1,14 +1,15 @@
 "use client";
 
+import { Fragment } from "react";
 import { openDialog } from "../redux/features/dialogSlice";
 import { setCurrentUser } from "../redux/features/usersSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import Colors from "../colors/colors";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 import useUsers from "../hooks/useUsers";
 import dayjs from "dayjs";
-import { Fragment } from "react";
 
 interface userProps {
   cell: string;
@@ -108,46 +109,46 @@ export default function UserCards() {
             sx={{
               padding: "2rem 1.75rem",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-              backgroundColor: "#ffffff",
+              backgroundColor: Colors.white,
               borderRadius: "0.5rem",
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
               cursor: "pointer",
               justifyItems: "center",
               marginBottom: "1rem",
-              border: "2px solid #ffffff",
+              border: `2px solid ${Colors.white}`,
               ":hover": {
-                borderColor: "#35bad8",
+                borderColor: Colors.primary,
               },
             }}
           >
             <Typography
               variant="body2"
-              sx={{ color: "#979797", fontWeight: "400" }}
+              sx={{ color: Colors.secondaryGrey, fontWeight: "400" }}
             >
               {dayjs(user?.dob?.date).format("DD MMM YYYY")}
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: "#303030", fontWeight: "600" }}
+              sx={{ color: Colors.black, fontWeight: "600" }}
             >
               {user?.name?.first} {user?.name?.last}
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: "#979797", fontWeight: "400" }}
+              sx={{ color: Colors.secondaryGrey, fontWeight: "400" }}
             >
               {user?.gender}
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: "#303030", fontWeight: "400" }}
+              sx={{ color: Colors.black, fontWeight: "400" }}
             >
               {user?.location?.country}
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: "#979797", fontWeight: "400" }}
+              sx={{ color: Colors.secondaryGrey, fontWeight: "400" }}
             >
               {user?.email}
             </Typography>

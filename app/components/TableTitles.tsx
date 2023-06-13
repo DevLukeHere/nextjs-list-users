@@ -1,6 +1,7 @@
 "use client";
 
 import Typography from "@mui/material/Typography";
+import Colors from "../colors/colors";
 import Box from "@mui/material/Box";
 
 export default function TableTitles() {
@@ -14,19 +15,19 @@ export default function TableTitles() {
           justifyItems: "center",
         }}
       >
-        <Typography variant="caption" sx={{ color: "#bcbcbc" }}>
+        <Typography variant="caption" sx={{ color: Colors.grey }}>
           Date
         </Typography>
-        <Typography variant="caption" sx={{ color: "#bcbcbc" }}>
+        <Typography variant="caption" sx={{ color: Colors.grey }}>
           Name
         </Typography>
-        <Typography variant="caption" sx={{ color: "#bcbcbc" }}>
+        <Typography variant="caption" sx={{ color: Colors.grey }}>
           Gender
         </Typography>
-        <Typography variant="caption" sx={{ color: "#bcbcbc" }}>
+        <Typography variant="caption" sx={{ color: Colors.grey }}>
           Country
         </Typography>
-        <Typography variant="caption" sx={{ color: "#bcbcbc" }}>
+        <Typography variant="caption" sx={{ color: Colors.grey }}>
           Email
         </Typography>
       </Box>
