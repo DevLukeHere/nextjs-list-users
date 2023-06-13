@@ -1,6 +1,7 @@
 "use client";
 
 import { openDialog } from "../redux/features/dialogSlice";
+import { setCurrentUser } from "../redux/features/usersSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -12,6 +13,15 @@ import { Fragment } from "react";
 export default function UserCards() {
   const dispatch = useAppDispatch();
   const { users, isLoading } = useUsers(7);
+
+  // console.log("users:", users);
+
+  // TODO: Fix TypeScript error
+  // @ts-ignore
+  function handleOpen(user) {
+    dispatch(openDialog());
+    dispatch(setCurrentUser(user));
+  }
 
   return (
     <section>
@@ -42,7 +52,7 @@ export default function UserCards() {
         users.map((user, index) => (
           <Box
             key={index}
-            onClick={() => dispatch(openDialog())}
+            onClick={() => handleOpen(user)}
             sx={{
               padding: "2rem 1.75rem",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",

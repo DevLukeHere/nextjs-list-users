@@ -1,6 +1,7 @@
 "use client";
 
 import { closeDialog } from "../redux/features/dialogSlice";
+import { reset } from "../redux/features/usersSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -25,10 +26,12 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
 
 export default function UserInformationDialog() {
   const open = useAppSelector((state) => state.dialogReducer.open);
+  const currentUser = useAppSelector((state) => state.usersReducer.currentUser);
   const dispatch = useAppDispatch();
 
   function handleClose() {
     dispatch(closeDialog());
+    dispatch(reset());
   }
 
   return (
@@ -46,9 +49,9 @@ export default function UserInformationDialog() {
         }}
       >
         <Typography sx={{ fontWeight: "700" }} variant="h4">
-          Megan R.Johnson
+          {currentUser?.name?.first} {currentUser?.name?.last}
         </Typography>
-        <IconButton aria-label="close" onClick={() => dispatch(closeDialog())}>
+        <IconButton aria-label="close" onClick={handleClose}>
           <CloseIcon />
         </IconButton>
       </Box>
@@ -93,7 +96,7 @@ export default function UserInformationDialog() {
             sx={{ marginBottom: "0.5rem", color: "#303030" }}
             variant="body2"
           >
-            14 Sep 2022
+            {currentUser?.dob?.date}
           </Typography>
           <Typography
             sx={{ marginBottom: "0.5rem", color: "#303030" }}
@@ -105,16 +108,16 @@ export default function UserInformationDialog() {
             sx={{ marginBottom: "0.5rem", color: "#303030" }}
             variant="body2"
           >
-            Female
+            {currentUser?.gender}
           </Typography>
           <Typography
             sx={{ marginBottom: "0.5rem", color: "#303030" }}
             variant="body2"
           >
-            Australia
+            {currentUser?.location?.country}
           </Typography>
           <Typography sx={{ color: "#303030" }} variant="body2">
-            meganejohnson@gmail.com
+            {currentUser?.email}
           </Typography>
         </Box>
       </DialogContent>
