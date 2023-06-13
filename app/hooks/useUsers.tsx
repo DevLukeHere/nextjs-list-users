@@ -5,15 +5,21 @@ import axios from "axios";
 //   results: number;
 // }
 
-type results = number
+type results = number;
 
 export default function useUsers(results: results) {
   // TODO: Fix TypeScript error
   // @ts-ignore
-  const fetcher = url => axios.get(url).then(response => response.data.results)
+  const fetcher = (url) =>
+    axios.get(url).then((response) => response.data.results);
   const { data, error, isLoading } = useSWR(
     `https://randomuser.me/api/?results=${results}`,
-    fetcher
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
 
   return {
