@@ -22,7 +22,7 @@ const BoxStyled = styled(Box)({
 });
 
 const TableTitle = styled(Typography)({
-  color: Colors.grey,
+  color: Colors.primaryGrey,
 });
 
 export default function TableTitles() {
