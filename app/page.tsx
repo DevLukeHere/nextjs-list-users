@@ -7,7 +7,6 @@ import UserCards from "./components/UserCards";
 import RefreshButton from "./components/RefreshButton";
 import UserInformationDialog from "./components/UserInformationDialog";
 import Pagination from "./components/Pagination";
-import Searchbar from "./components/Searchbar";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <ProfileHeader />
       <Container>
         <UserInformationDialog />
-        {/* <Searchbar /> */}
         <TableTitles />
         <UserCards />
         <Pagination />
