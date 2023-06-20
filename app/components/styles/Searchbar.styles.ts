@@ -2,6 +2,7 @@ import styled from "@mui/material/styles/styled";
 import Box from "@mui/material/Box";
 import Colors from "../../colors/colors";
 import TextField from "@mui/material/TextField";
+import Skeleton from "@mui/material/Skeleton";
 
 export const TextFieldStyled = styled(TextField)({
   marginBottom: "1rem",
@@ -20,4 +21,10 @@ export const TextFieldStyled = styled(TextField)({
 export const DividerBottom = styled(Box)({
   width: "100%",
   height: "2rem",
+});
+
+export const SkeletonStyled = styled(Skeleton)({
+  width: "100%",
+  height: "56px",
+  borderRadius: "0.75rem",
 });
