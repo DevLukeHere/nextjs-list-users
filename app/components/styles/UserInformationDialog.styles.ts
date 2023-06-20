@@ -40,4 +40,5 @@ export const NameText = styled("h5")({
   fontSize: "2rem",
   color: Colors.black,
   fontWeight: "700",
+  margin: "0",
 });

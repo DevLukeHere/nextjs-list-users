@@ -9,12 +9,14 @@ export const NameText = styled("h4")({
   color: Colors.white,
   fontWeight: "700",
   textTransform: "capitalize",
+  margin: "0",
 });
 
 export const LastOnlineText = styled("p")({
   fontSize: "0.875rem",
   color: Colors.white,
   fontWeight: "400",
+  margin: "0",
 });
 
 export const BoxStyled = styled(Box)((props) => ({

@@ -7,18 +7,21 @@ export const UserNameText = styled("p")({
   fontSize: "0.875rem",
   color: Colors.black,
   fontWeight: "600",
+  margin: "0",
 });
 
 export const TextBlack = styled("p")({
   fontSize: "0.875rem",
   color: Colors.black,
   fontWeight: "400",
+  margin: "0",
 });
 
 export const TextGrey = styled("p")({
   fontSize: "0.875rem",
   color: Colors.secondaryGrey,
   fontWeight: "400",
+  margin: "0",
 });
 
 export const SkeletonStyled = styled(Skeleton)({

@@ -21,4 +21,5 @@ export const BoxStyled = styled(Box)({
 export const TableTitle = styled("p")({
   fontSize: "0.75rem",
   color: Colors.primaryGrey,
+  margin: "0",
 });
