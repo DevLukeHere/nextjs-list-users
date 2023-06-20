@@ -15,7 +15,6 @@ import Colors from "../colors/colors";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
 import avatar from "../../public/images/avatar.png";
-import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 
@@ -27,7 +26,7 @@ const montserrat = Montserrat({
 
 export default function ProfileHeader() {
   const page = useAppSelector((state) => state.paginationReducer.page);
-  const { isLoading, isValidating } = useUsers(page, 20);
+  const { isLoading, isValidating } = useUsers(page, 7);
 
   return (
     <section

@@ -73,7 +73,7 @@ interface userProps {
 export default function UserCards() {
   const page = useAppSelector((state) => state.paginationReducer.page);
   const dispatch = useAppDispatch();
-  const { users, isLoading, isValidating } = useUsers(page, 20);
+  const { users, isLoading, isValidating } = useUsers(page, 7);
 
   function handleOpen(user: unknown) {
     dispatch(openDialog());

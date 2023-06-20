@@ -7,7 +7,7 @@ import useUsers from "../hooks/useUsers";
 
 export default function RefreshButton() {
   const page = useAppSelector((state) => state.paginationReducer.page);
-  const { mutate, isLoading, isValidating } = useUsers(page, 20);
+  const { mutate, isLoading, isValidating } = useUsers(page, 7);
 
   function handleRefresh() {
     mutate();

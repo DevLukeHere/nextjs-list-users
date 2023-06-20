@@ -11,7 +11,7 @@ import useUsers from "../hooks/useUsers";
 export default function Pagination() {
   const page = useAppSelector((state) => state.paginationReducer.page);
   const dispatch = useAppDispatch();
-  const { isLoading, isValidating } = useUsers(page, 20);
+  const { isLoading, isValidating } = useUsers(page, 7);
 
   function handlePrevious() {
     dispatch(toPreviousPage());
