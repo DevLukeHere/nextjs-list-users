@@ -11,6 +11,7 @@ import {
   ContentBox,
 } from "./styles/ProfileHeader.styles";
 import { Montserrat } from "next/font/google";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Colors from "../colors/colors";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
@@ -27,18 +28,25 @@ const montserrat = Montserrat({
 export default function ProfileHeader() {
   const page = useAppSelector((state) => state.paginationReducer.page);
   const { isLoading, isValidating } = useUsers(page, 7);
+  const matches = useMediaQuery("(min-width: 900px)");
 
   return (
     <section
       className={montserrat.className}
       style={{
-        height: "9.75rem",
+        height: `${matches ? "9.75rem" : "auto"}`,
         backgroundColor: Colors.primary,
       }}
     >
       <ContainerStyled>
         <BoxStyled>
-          <Image src={avatar} alt="avatar" priority width="148" height="148" />
+          <Image
+            src={avatar}
+            alt="avatar"
+            priority
+            width={matches ? 148 : 100}
+            height={matches ? 148 : 100}
+          />
         </BoxStyled>
         <ContentBox>
           <NameText>john doe</NameText>

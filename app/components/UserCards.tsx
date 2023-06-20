@@ -12,6 +12,7 @@ import {
   BoxStyled,
 } from "./styles/UserCards.styles";
 import useUsers from "../hooks/useUsers";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import dayjs from "dayjs";
 interface userProps {
   cell: string;
@@ -73,6 +74,7 @@ interface userProps {
 export default function UserCards() {
   const page = useAppSelector((state) => state.paginationReducer.page);
   const dispatch = useAppDispatch();
+  const matches = useMediaQuery("(min-width: 900px)");
   const { users, isLoading, isValidating } = useUsers(page, 7);
 
   function handleOpen(user: unknown) {
@@ -91,15 +93,13 @@ export default function UserCards() {
       ) : (
         users?.map((user: userProps, index: number) => (
           <BoxStyled key={index} onClick={() => handleOpen(user)}>
-            <TextGrey>
-              {dayjs(user?.dob?.date).format("DD MMM YYYY")}
-            </TextGrey>
+            <TextGrey>{dayjs(user?.dob?.date).format("DD MMM YYYY")}</TextGrey>
             <UserNameText>
               {user?.name?.first} {user?.name?.last}
             </UserNameText>
             <TextGrey>{user?.gender}</TextGrey>
             <TextBlack>{user?.location?.country}</TextBlack>
-            <TextGrey>{user?.email}</TextGrey>
+            {matches ? <TextGrey>{user?.email}</TextGrey> : null}
           </BoxStyled>
         ))
       )}

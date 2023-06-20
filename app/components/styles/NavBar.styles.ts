@@ -6,7 +6,7 @@ export const ContainerStyled = styled(Container)({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "1rem 0",
+  padding: "1rem 1rem",
 });
 
 export const BoxStyled = styled(Box)({

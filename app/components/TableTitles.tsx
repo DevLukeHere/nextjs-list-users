@@ -6,8 +6,11 @@ import {
   BoxStyled,
   TableTitle,
 } from "./styles/TableTitles.styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function TableTitles() {
+  const matches = useMediaQuery("(min-width: 900px)");
+
   return (
     <section>
       <DividerTop></DividerTop>
@@ -16,7 +19,7 @@ export default function TableTitles() {
         <TableTitle>Name</TableTitle>
         <TableTitle>Gender</TableTitle>
         <TableTitle>Country</TableTitle>
-        <TableTitle>Email</TableTitle>
+        {matches ? <TableTitle>Email</TableTitle> : null}
       </BoxStyled>
       <DividerBottom></DividerBottom>
     </section>

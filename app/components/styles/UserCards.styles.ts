@@ -8,6 +8,8 @@ export const UserNameText = styled("p")({
   color: Colors.black,
   fontWeight: "600",
   margin: "0",
+  textAlign: "center",
+  wordWrap: "break-word",
 });
 
 export const TextBlack = styled("p")({
@@ -15,6 +17,8 @@ export const TextBlack = styled("p")({
   color: Colors.black,
   fontWeight: "400",
   margin: "0",
+  textAlign: "center",
+  wordWrap: "break-word",
 });
 
 export const TextGrey = styled("p")({
@@ -22,6 +26,8 @@ export const TextGrey = styled("p")({
   color: Colors.secondaryGrey,
   fontWeight: "400",
   margin: "0",
+  textAlign: "center",
+  wordWrap: "break-word",
 });
 
 export const SkeletonStyled = styled(Skeleton)({
@@ -29,7 +35,7 @@ export const SkeletonStyled = styled(Skeleton)({
   marginBottom: "1rem",
 });
 
-export const BoxStyled = styled(Box)({
+export const BoxStyled = styled(Box)((props) => ({
   padding: "2rem 1.75rem",
   boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
   backgroundColor: Colors.white,
@@ -40,7 +46,13 @@ export const BoxStyled = styled(Box)({
   justifyItems: "center",
   marginBottom: "1rem",
   border: `2px solid ${Colors.white}`,
+  alignItems: "center",
+
   ":hover": {
     borderColor: Colors.primary,
   },
-});
+
+  [props.theme.breakpoints.down("md")]: {
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  },
+}));
