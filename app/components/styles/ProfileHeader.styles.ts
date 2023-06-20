@@ -26,11 +26,15 @@ export const BoxStyled = styled(Box)((props) => ({
   transform: "translate(0%, 50%)",
 }));
 
+export const ContentBox = styled(Box)((props) => ({
+  paddingBottom: "1rem",
+}));
+
 export const ContainerStyled = styled(Container)({
   backgroundColor: Colors.primary,
   height: "100%",
   display: "flex",
-  alignItems: "center",
+  alignItems: "flex-end",
   justifyContent: "space-around",
   position: "relative",
 });

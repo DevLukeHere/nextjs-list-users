@@ -2,8 +2,10 @@ import styled from "@mui/material/styles/styled";
 import Box from "@mui/material/Box";
 
 export const BoxStyled = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
   marginTop: "1rem",
-  textAlign: "end",
 });
 
 export const PageNumber = styled("p")({

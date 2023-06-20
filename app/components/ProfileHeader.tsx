@@ -8,6 +8,7 @@ import {
   ContainerStyled,
   SendMessageButton,
   AddFriendButton,
+  ContentBox,
 } from "./styles/ProfileHeader.styles";
 import { Montserrat } from "next/font/google";
 import Colors from "../colors/colors";
@@ -40,11 +41,11 @@ export default function ProfileHeader() {
         <BoxStyled>
           <Image src={avatar} alt="avatar" priority width="148" height="148" />
         </BoxStyled>
-        <Box>
+        <ContentBox>
           <NameText>john doe</NameText>
           <LastOnlineText>Last online: 2 days ago</LastOnlineText>
-        </Box>
-        <Box>
+        </ContentBox>
+        <ContentBox>
           <SendMessageButton
             disabled={isValidating || isLoading}
             variant="contained"
@@ -59,7 +60,7 @@ export default function ProfileHeader() {
           >
             Add Friend
           </AddFriendButton>
-        </Box>
+        </ContentBox>
       </ContainerStyled>
     </section>
   );
