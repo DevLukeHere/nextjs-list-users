@@ -1,11 +1,15 @@
-import react, { ReactNode } from "react";
+import { ReactNode } from "react";
 import "./globals.css";
 import { Providers } from "./redux/provider";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import NavBar from "./components/NavBar";
 import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] });
+const open_sans = Open_Sans({
+  weight: ["300", "400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Home | Kiratech",
@@ -18,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className={inter.className}>
+      <body className={open_sans.className}>
         <NavBar />
         <Providers>{children}</Providers>
       </body>
