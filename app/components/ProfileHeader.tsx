@@ -9,6 +9,7 @@ import {
   SendMessageButton,
   AddFriendButton,
 } from "./styles/ProfileHeader.styles";
+import { Montserrat } from "next/font/google";
 import Colors from "../colors/colors";
 import Image from "next/image";
 import useUsers from "../hooks/useUsers";
@@ -17,12 +18,19 @@ import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 
+const montserrat = Montserrat({
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
+
 export default function ProfileHeader() {
   const page = useAppSelector((state) => state.paginationReducer.page);
   const { isLoading, isValidating } = useUsers(page, 20);
 
   return (
     <section
+      className={montserrat.className}
       style={{
         height: "9.75rem",
         backgroundColor: Colors.primary,
@@ -34,9 +42,7 @@ export default function ProfileHeader() {
         </BoxStyled>
         <Box>
           <NameText>john doe</NameText>
-          <LastOnlineText>
-            Last online: 2 days ago
-          </LastOnlineText>
+          <LastOnlineText>Last online: 2 days ago</LastOnlineText>
         </Box>
         <Box>
           <SendMessageButton
