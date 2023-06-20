@@ -8,7 +8,7 @@ import {
   BoxStyled,
   TextBlack,
   TextGrey,
-  NameText
+  NameText,
 } from "./styles/UserInformationDialog.styles";
 import DialogContent from "@mui/material/DialogContent";
 import CloseIcon from "@mui/icons-material/Close";
@@ -60,9 +60,7 @@ export default function UserInformationDialog() {
           </TextBlack>
           <TextBlack>Inactive</TextBlack>
           <TextBlack>{currentUser?.gender}</TextBlack>
-          <TextBlack>
-            {currentUser?.location?.country}
-          </TextBlack>
+          <TextBlack>{currentUser?.location?.country}</TextBlack>
           <TextBlack>{currentUser?.email}</TextBlack>
         </Box>
       </DialogContent>

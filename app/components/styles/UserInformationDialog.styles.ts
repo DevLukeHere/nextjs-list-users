@@ -2,7 +2,6 @@ import styled from "@mui/material/styles/styled";
 import Colors from "../../colors/colors";
 import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 export const CustomDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -22,6 +21,7 @@ export const BoxStyled = styled(Box)({
   gridTemplateColumns: "1fr auto",
   columnGap: "2rem",
   padding: "0 1.5rem",
+  alignItems: "center",
 });
 
 export const TextBlack = styled("p")({
@@ -36,9 +36,13 @@ export const TextGrey = styled("p")({
   color: Colors.secondaryGrey,
 });
 
-export const NameText = styled("h5")({
+export const NameText = styled("h5")((props) => ({
   fontSize: "2rem",
   color: Colors.black,
   fontWeight: "700",
   margin: "0",
-});
+
+  [props.theme.breakpoints.down("md")]: {
+    fontSize: "1.5rem",
+  },
+}));
