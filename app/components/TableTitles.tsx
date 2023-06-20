@@ -6,6 +6,7 @@ import {
   BoxStyled,
   TableTitle,
 } from "./styles/TableTitles.styles";
+import Searchbar from "./Searchbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function TableTitles() {
@@ -14,6 +15,7 @@ export default function TableTitles() {
   return (
     <section>
       <DividerTop></DividerTop>
+      <Searchbar />
       <BoxStyled>
         <TableTitle>Date</TableTitle>
         <TableTitle>Name</TableTitle>

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 export const DividerTop = styled(Box)((props) => ({
   width: "100%",
-  height: "7.5rem",
+  height: "6.5rem",
 
   [props.theme.breakpoints.down("md")]: {
     height: "4rem",
