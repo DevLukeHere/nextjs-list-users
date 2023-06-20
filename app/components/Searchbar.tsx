@@ -12,7 +12,11 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import ClearIcon from "@mui/icons-material/Clear";
 
-type event = any;
+interface EventProps {
+  target: {
+    value: string;
+  };
+}
 
 export default function Searchbar() {
   const name = useAppSelector((state) => state.filterReducer.name);
@@ -24,7 +28,7 @@ export default function Searchbar() {
     dispatch(reset());
   }
 
-  function handleChange(event: event) {
+  function handleChange(event: EventProps) {
     const name = event.target.value;
 
     dispatch(setNameFilter(name));
@@ -44,13 +48,14 @@ export default function Searchbar() {
         <TextFieldStyled
           id="searchbar"
           variant="outlined"
-          label="search by name"
+          label="Search name (WIP)"
           value={name}
           onChange={handleChange}
+          disabled={true}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={handleClear}>
+                <IconButton disabled={true} onClick={handleClear}>
                   <ClearIcon />
                 </IconButton>
               </InputAdornment>
