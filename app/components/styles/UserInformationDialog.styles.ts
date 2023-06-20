@@ -2,6 +2,13 @@ import styled from "@mui/material/styles/styled";
 import Colors from "../../colors/colors";
 import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
+import DialogContent from "@mui/material/DialogContent";
+
+export const DialogContentStyled = styled(DialogContent)({
+  display: "grid",
+  gridTemplateColumns: "auto 1fr",
+  columnGap: "1rem",
+});
 
 export const CustomDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {

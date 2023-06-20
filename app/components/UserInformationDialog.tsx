@@ -9,8 +9,8 @@ import {
   TextBlack,
   TextGrey,
   NameText,
+  DialogContentStyled,
 } from "./styles/UserInformationDialog.styles";
-import DialogContent from "@mui/material/DialogContent";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
@@ -40,13 +40,7 @@ export default function UserInformationDialog() {
           <CloseIcon />
         </IconButton>
       </BoxStyled>
-      <DialogContent
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "auto 1fr",
-          columnGap: "1rem",
-        }}
-      >
+      <DialogContentStyled>
         <Box>
           <TextGrey>Date:</TextGrey>
           <TextGrey>Status:</TextGrey>
@@ -63,7 +57,7 @@ export default function UserInformationDialog() {
           <TextBlack>{currentUser?.location?.country}</TextBlack>
           <TextBlack>{currentUser?.email}</TextBlack>
         </Box>
-      </DialogContent>
+      </DialogContentStyled>
     </CustomDialog>
   );
 }
