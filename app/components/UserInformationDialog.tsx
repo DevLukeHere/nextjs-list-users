@@ -3,45 +3,18 @@
 import { closeDialog } from "../redux/features/dialogSlice";
 import { reset } from "../redux/features/usersSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { styled } from "@mui/material/styles";
-import Colors from "../colors/colors";
-import Dialog from "@mui/material/Dialog";
+import {
+  CustomDialog,
+  BoxStyled,
+  TextBlack,
+  TextGrey,
+} from "./styles/UserInformationDialog.styles";
 import DialogContent from "@mui/material/DialogContent";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import dayjs from "dayjs";
-
-const CustomDialog = styled(Dialog)(({ theme }) => ({
-  "& .MuiDialogContent-root": {
-    //
-  },
-  "& .MuiDialogActions-root": {
-    padding: theme.spacing(1),
-  },
-  "& .MuiPaper-root": {
-    borderRadius: "0.5rem",
-    padding: "1.5rem",
-  },
-}));
-
-const BoxStyled = styled(Box)({
-  display: "grid",
-  gridTemplateColumns: "1fr auto",
-  columnGap: "2rem",
-  padding: "0 1.5rem",
-});
-
-const TextBlack = styled(Typography)({
-  marginBottom: "0.5rem",
-  color: Colors.black,
-});
-
-const TextGrey = styled(Typography)({
-  marginBottom: "0.5rem",
-  color: Colors.secondaryGrey,
-});
 
 export default function UserInformationDialog() {
   const open = useAppSelector((state) => state.dialogReducer.open);
