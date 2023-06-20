@@ -13,6 +13,6 @@ export const ButtonStyled = styled(Button)({
   borderRadius: "0.25rem",
   textTransform: "capitalize",
   ":hover": {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.secondary,
   },
 });
