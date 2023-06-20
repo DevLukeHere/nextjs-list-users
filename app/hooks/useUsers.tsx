@@ -9,7 +9,7 @@ export default function useUsers(page: page, results: results) {
   const fetcher = (url: url) =>
     axios.get(url).then((response) => response.data.results);
   const { data, mutate, error, isLoading, isValidating } = useSWR(
-    `https://randomuser.me/api/?page=${page}&results=${results}&seed=abc`,
+    `https://randomuser.me/api/?page=${page}&results=${results}&seed=foobar`,
     fetcher,
     {
       revalidateIfStale: false,
