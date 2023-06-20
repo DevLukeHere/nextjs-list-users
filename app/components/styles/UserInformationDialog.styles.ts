@@ -24,12 +24,20 @@ export const BoxStyled = styled(Box)({
   padding: "0 1.5rem",
 });
 
-export const TextBlack = styled(Typography)({
+export const TextBlack = styled("p")({
+  fontSize: "0.875rem",
   marginBottom: "0.5rem",
   color: Colors.black,
 });
 
-export const TextGrey = styled(Typography)({
+export const TextGrey = styled("p")({
+  fontSize: "0.875rem",
   marginBottom: "0.5rem",
   color: Colors.secondaryGrey,
+});
+
+export const NameText = styled("h5")({
+  fontSize: "2rem",
+  color: Colors.black,
+  fontWeight: "700",
 });

@@ -91,15 +91,15 @@ export default function UserCards() {
       ) : (
         users?.map((user: userProps, index: number) => (
           <BoxStyled key={index} onClick={() => handleOpen(user)}>
-            <TextGrey variant="body2">
+            <TextGrey>
               {dayjs(user?.dob?.date).format("DD MMM YYYY")}
             </TextGrey>
-            <UserNameText variant="body2">
+            <UserNameText>
               {user?.name?.first} {user?.name?.last}
             </UserNameText>
-            <TextGrey variant="body2">{user?.gender}</TextGrey>
-            <TextBlack variant="body2">{user?.location?.country}</TextBlack>
-            <TextGrey variant="body2">{user?.email}</TextGrey>
+            <TextGrey>{user?.gender}</TextGrey>
+            <TextBlack>{user?.location?.country}</TextBlack>
+            <TextGrey>{user?.email}</TextGrey>
           </BoxStyled>
         ))
       )}

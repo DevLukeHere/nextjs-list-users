@@ -29,7 +29,7 @@ export default function Pagination() {
       >
         <ChevronLeftIcon />
       </IconButton>
-      <PageNumber variant="caption">{page}</PageNumber>
+      <PageNumber>{page}</PageNumber>
       <IconButton
         disabled={isLoading || isValidating}
         onClick={() => handleNext()}

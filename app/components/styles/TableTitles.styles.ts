@@ -1,4 +1,3 @@
-import Typography from "@mui/material/Typography";
 import styled from "@mui/material/styles/styled";
 import Colors from "../../colors/colors";
 import Box from "@mui/material/Box";
@@ -19,6 +18,7 @@ export const BoxStyled = styled(Box)({
   justifyItems: "center",
 });
 
-export const TableTitle = styled(Typography)({
+export const TableTitle = styled("p")({
+  fontSize: "0.75rem",
   color: Colors.primaryGrey,
 });

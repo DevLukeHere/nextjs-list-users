@@ -1,17 +1,18 @@
 import Colors from "../../colors/colors";
 import styled from "@mui/material/styles/styled";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-export const NameText = styled(Typography)({
+export const NameText = styled("h4")({
+  fontSize: "2.5rem",
   color: Colors.white,
   fontWeight: "700",
   textTransform: "capitalize",
 });
 
-export const LastOnlineText = styled(Typography)({
+export const LastOnlineText = styled("p")({
+  fontSize: "0.875rem",
   color: Colors.white,
   fontWeight: "400",
 });

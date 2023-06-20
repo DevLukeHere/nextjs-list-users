@@ -33,8 +33,8 @@ export default function ProfileHeader() {
           <Image src={avatar} alt="avatar" priority width="148" height="148" />
         </BoxStyled>
         <Box>
-          <NameText variant="h4">john doe</NameText>
-          <LastOnlineText variant="body2">
+          <NameText>john doe</NameText>
+          <LastOnlineText>
             Last online: 2 days ago
           </LastOnlineText>
         </Box>

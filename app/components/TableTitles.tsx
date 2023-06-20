@@ -12,11 +12,11 @@ export default function TableTitles() {
     <section>
       <DividerTop></DividerTop>
       <BoxStyled>
-        <TableTitle variant="caption">Date</TableTitle>
-        <TableTitle variant="caption">Name</TableTitle>
-        <TableTitle variant="caption">Gender</TableTitle>
-        <TableTitle variant="caption">Country</TableTitle>
-        <TableTitle variant="caption">Email</TableTitle>
+        <TableTitle>Date</TableTitle>
+        <TableTitle>Name</TableTitle>
+        <TableTitle>Gender</TableTitle>
+        <TableTitle>Country</TableTitle>
+        <TableTitle>Email</TableTitle>
       </BoxStyled>
       <DividerBottom></DividerBottom>
     </section>

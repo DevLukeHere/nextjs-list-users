@@ -1,12 +1,12 @@
 "use client";
 
+import { ContainerStyled, BoxStyled } from "./styles/NavBar.styles";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import IconButton from "@mui/material/IconButton";
-import { ContainerStyled, BoxStyled } from "./styles/NavBar.styles";
 
 export default function NavBar() {
   return (

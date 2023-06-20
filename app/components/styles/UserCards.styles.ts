@@ -1,20 +1,22 @@
 import styled from "@mui/material/styles/styled";
 import Colors from "../../colors/colors";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 
-export const UserNameText = styled(Typography)({
+export const UserNameText = styled("p")({
+  fontSize: "0.875rem",
   color: Colors.black,
   fontWeight: "600",
 });
 
-export const TextBlack = styled(Typography)({
+export const TextBlack = styled("p")({
+  fontSize: "0.875rem",
   color: Colors.black,
   fontWeight: "400",
 });
 
-export const TextGrey = styled(Typography)({
+export const TextGrey = styled("p")({
+  fontSize: "0.875rem",
   color: Colors.secondaryGrey,
   fontWeight: "400",
 });
