@@ -6,12 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 2. Run "npm run dev" in your terminal.
 
-3. Go to "http://localhost:3000" in your browser of choice.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Additional Information
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Open Sans, a custom Google Font.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-Please visit: (https://kiratech-users-list.vercel.app/) to view the production build.
