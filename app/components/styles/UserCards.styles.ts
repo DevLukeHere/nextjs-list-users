@@ -50,6 +50,10 @@ export const BoxStyled = styled(Box)((props) => ({
 
   ":hover": {
     borderColor: Colors.primary,
+
+    ".user-name-text": {
+      color: Colors.primary,
+    },
   },
 
   [props.theme.breakpoints.down("md")]: {
